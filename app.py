@@ -20,18 +20,17 @@ model_loaded = False
 # Load model
 
 try:
-st.write("Model exists:", os.path.exists("laptop_price_model.pkl"))
+    st.write("Model exists:", os.path.exists("laptop_price_model.pkl"))
 
-```
-model = joblib.load("laptop_price_model.pkl")
-model_loaded = True
+    model = joblib.load("laptop_price_model.pkl")
+    model_loaded = True
 
-st.success("Model loaded successfully!")
-```
+    st.success("Model loaded successfully!")
+
 
 except Exception as e:
-st.error(f"Error Type: {type(e).**name**}")
-st.error(f"Error Details: {repr(e)}")
+    st.error(f"Error Type: {type(e).__name__}")
+    st.error(f"Error Details: {repr(e)}")
 
 st.write("Enter laptop specifications")
 
@@ -95,7 +94,7 @@ workstation = 1 if workstation == "Yes" else 0
 
 if st.button("Predict Price"):
 
-```
+
 if not model_loaded:
     st.error("Model could not be loaded.")
 else:
