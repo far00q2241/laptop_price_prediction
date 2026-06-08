@@ -95,24 +95,26 @@ workstation = 1 if workstation == "Yes" else 0
 if st.button("Predict Price"):
 
 
-if not model_loaded:
-    st.error("Model could not be loaded.")
-else:
+if st.button("Predict Price"):
 
-    input_data = pd.DataFrame({
-        "Inches": [inches],
-        "Ram": [ram],
-        "Weight": [weight],
-        "X_res": [x_res],
-        "Y_res": [y_res],
-        "SSD": [ssd],
-        "TypeName_Notebook": [notebook],
-        "TypeName_Workstation": [workstation]
-    })
+    if not model_loaded:
+        st.error("Model could not be loaded.")
 
-    try:
-        prediction = model.predict(input_data)[0]
-        st.success(f"Estimated Laptop Price: €{prediction:.2f}")
+    else:
+        input_data = pd.DataFrame({
+            "Inches": [inches],
+            "Ram": [ram],
+            "Weight": [weight],
+            "X_res": [x_res],
+            "Y_res": [y_res],
+            "SSD": [ssd],
+            "TypeName_Notebook": [notebook],
+            "TypeName_Workstation": [workstation]
+        })
 
-    except Exception as e:
-        st.error(f"Prediction Error: {repr(e)}")
+        try:
+            prediction = model.predict(input_data)[0]
+            st.success(f"Estimated Laptop Price: €{prediction:.2f}")
+
+        except Exception as e:
+            st.error(f"Prediction Error: {repr(e)}")
