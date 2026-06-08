@@ -92,8 +92,6 @@ workstation = 1 if workstation == "Yes" else 0
 
 # Prediction button
 
-if st.button("Predict Price"):
-
 
 if st.button("Predict Price"):
 
